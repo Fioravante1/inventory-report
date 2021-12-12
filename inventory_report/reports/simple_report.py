@@ -33,7 +33,8 @@ class SimpleReport:
 
     def high_stock(dict_list):
         enterprises_stock_value = []
-
+        # Não entendi porque não posso fazer um set direto no
+        # enterprises_stock_value
         for enterprise in dict_list:
             stock_value = 0
             stock_value = SimpleReport.count_enterprise(
