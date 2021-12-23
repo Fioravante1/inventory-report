@@ -2,6 +2,27 @@ from datetime import date
 
 
 class SimpleReport:
+    @classmethod
+    def generate(cls, dict_list):
+
+        old_product = min(SimpleReport.older_product(dict_list))
+        expiration_date = SimpleReport.closest_expiration_date(dict_list)
+        enterprise_name = SimpleReport.high_stock(dict_list)
+        one_line = (
+            f"Data de fabricação mais antiga: {old_product}"
+            )
+        two_line = (
+            f"Data de validade mais próxima: {expiration_date}"
+        )
+        three_line = (
+            f"""Empresa com maior quantidade de produtos estocados: {
+                enterprise_name["nome_da_empresa"]
+                }"""
+            )
+
+        return f"{one_line}\n{two_line}\n{three_line}\n"
+
+    @staticmethod
     def count_enterprise(enterprise_name, dict_list):
         value = 0
         for enterprise in dict_list:
@@ -10,6 +31,7 @@ class SimpleReport:
 
         return value
 
+    @staticmethod
     def closest_expiration_date(dict_list):
         date_list = []
         today = date.today()
@@ -23,6 +45,7 @@ class SimpleReport:
         date_validate = min(item for item in date_list if item > today)
         return date_validate
 
+    @staticmethod
     def older_product(dict_list):
         date_list = []
 
@@ -31,6 +54,7 @@ class SimpleReport:
 
         return date_list
 
+    @staticmethod
     def high_stock(dict_list):
         enterprises_stock_value = []
         # Não entendi porque não posso fazer um set direto no
@@ -49,20 +73,9 @@ class SimpleReport:
             )
         return ordenados[len(ordenados) - 1]
 
-    def generate(dict_list):
-        old_product = min(SimpleReport.older_product(dict_list))
-        expiration_date = SimpleReport.closest_expiration_date(dict_list)
-        enterprise_name = SimpleReport.high_stock(dict_list)
-        one_line = (
-            f"Data de fabricação mais antiga: {old_product}"
-            )
-        two_line = (
-            f"Data de validade mais próxima: {expiration_date}"
-        )
-        three_line = (
-            f"""Empresa com maior quantidade de produtos estocados: {
-                enterprise_name["nome_da_empresa"]
-                }"""
-            )
-
-        return f"{one_line}\n{two_line}\n{three_line}\n"
+    @staticmethod
+    def get_all_enterprises(dict_list):
+        enterprises = set()
+        for corporation in dict_list:
+            enterprises.add(corporation["nome_da_empresa"])
+        return enterprises
