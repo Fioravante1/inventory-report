@@ -76,8 +76,10 @@ class SimpleReport:
     @staticmethod
     def get_all_enterprises(dict_list):
         # Consulta no repositório de leticia galvão:
-        # Como inicialmente usei set(), por algum motivo a ordenação não batia e como teste não cobra ordenação não passava!
-        # Esse texto deve ser usado como feedback construtivo, ordenação ajuda, por conta dessa diferença!
+        # Como inicialmente usei set(), por algum motivo a ordenação não batia 
+        # e como teste não cobra ordenação não passava!
+        # Esse texto deve ser usado como feedback construtivo, ordenação ajuda,
+        # por conta dessa diferença!
         # https://github.com/tryber/sd-010-b-inventory-report/pull/42/files#diff-1d75405432f767847d4d9acc877893c0a29992bad3d9b5b86b20dafec609a179R43
         enterprises = []
         for corporation in dict_list:
