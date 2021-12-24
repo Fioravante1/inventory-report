@@ -14,4 +14,4 @@ class CompleteReport(SimpleReport):
 
         print(report + "\n" + "Produtos estocados por empresa: \n" + res)
 
-        return report + "\n\n" + "Produtos estocados por empresa: \n" + res
+        return report + "\n" + "Produtos estocados por empresa: \n" + res
