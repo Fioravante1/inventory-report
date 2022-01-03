@@ -1,7 +1,9 @@
 from datetime import date
+from abc import ABC
 
 
-class SimpleReport:
+class SimpleReport(ABC):
+    # posso sobreescrever
     @classmethod
     def generate(cls, dict_list):
 
@@ -19,10 +21,12 @@ class SimpleReport:
                 enterprise_name["nome_da_empresa"]
                 }"""
             )
-
+        print(f"{one_line}\n{two_line}\n{three_line}\n", "estou aqui")
         return f"{one_line}\n{two_line}\n{three_line}\n"
 
     @staticmethod
+    # Não posso sobreescrever (Não recebe cls - classe como parametro não é
+    # necessário
     def count_enterprise(enterprise_name, dict_list):
         value = 0
         for enterprise in dict_list:
