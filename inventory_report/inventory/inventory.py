@@ -39,4 +39,3 @@ class Inventory:
         with open(path, 'r') as file:
             file_content = json.load(file)
         return file_content
-
