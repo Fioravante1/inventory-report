@@ -11,5 +11,3 @@ class CsvImporter(Importer):
             raise ValueError('Arquivo inválido')
         else:
             return Inventory.read_file_csv(path)
-
-
