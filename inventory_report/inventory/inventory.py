@@ -46,7 +46,8 @@ class Inventory:
         records = dom.findall("record")
         # filtro = "*"
         lista = []
-        # https://www.youtube.com/watch?v=rFxXDO8-keg (importante para aprender xml parser!)
+        # https://www.youtube.com/watch?v=rFxXDO8-keg 
+        # (importante para aprender xml parser!)
         for record in records:
             lista.append({
                 "id": record.find("id").text,
