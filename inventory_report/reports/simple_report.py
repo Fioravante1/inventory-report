@@ -1,8 +1,7 @@
 from datetime import date
-from abc import ABC
 
 
-class SimpleReport(ABC):
+class SimpleReport():
     # posso sobreescrever
     @classmethod
     def generate(cls, dict_list):

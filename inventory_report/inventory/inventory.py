@@ -47,7 +47,7 @@ class Inventory:
         # filtro = "*"
         lista = []
         # https://www.youtube.com/watch?v=rFxXDO8-keg
-        # (importante para aprender xml parser!)
+        # (importante para aprender fazer leitura de xml!)
         for record in records:
             lista.append({
                 "id": record.find("id").text,
