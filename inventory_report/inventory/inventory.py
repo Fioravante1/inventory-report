@@ -37,7 +37,7 @@ class Inventory:
             return list(file_content)
 
     def read_file_json(path):
-        with open(path, 'r') as file:
+        with open(path, "r") as file:
             file_content = json.load(file)
         return file_content
 
@@ -47,18 +47,23 @@ class Inventory:
         # filtro = "*"
         lista = []
         # https://www.youtube.com/watch?v=rFxXDO8-keg
-        # (importante para aprender fazer leitura de xml!)
+        # (importante para aprender fazer leitura de xml)
         for record in records:
-            lista.append({
-                "id": record.find("id").text,
-                "nome_do_produto": record.find("nome_do_produto").text,
-                "nome_da_empresa": record.find("nome_da_empresa").text,
-                "data_de_fabricacao": record.find("data_de_fabricacao").text,
-                "data_de_validade": record.find("data_de_validade").text,
-                "numero_de_serie": record.find("numero_de_serie").text,
-                "instrucoes_de_armazenamento": record.find(
-                    "instrucoes_de_armazenamento").text
-                })
+            lista.append(
+                {
+                    "id": record.find("id").text,
+                    "nome_do_produto": record.find("nome_do_produto").text,
+                    "nome_da_empresa": record.find("nome_da_empresa").text,
+                    "data_de_fabricacao": record.find(
+                        "data_de_fabricacao"
+                    ).text,
+                    "data_de_validade": record.find("data_de_validade").text,
+                    "numero_de_serie": record.find("numero_de_serie").text,
+                    "instrucoes_de_armazenamento": record.find(
+                        "instrucoes_de_armazenamento"
+                    ).text,
+                }
+            )
 
         print(lista)
         return lista
